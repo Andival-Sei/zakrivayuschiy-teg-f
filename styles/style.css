@@ -266,6 +266,37 @@
   fill: #fff; /* устанавливаем белое заполнение для SVG */
 }
 
+/* Анимация сердечка */
+.sparks {
+  opacity: 0;
+}
+
+/* Базовые состояния элементов сердечка с правильными transition */
+.heart .core {
+  fill: none;
+  transition: fill 0.3s ease 0s;
+}
+
+.heart .main-body {
+  fill: none;
+  transition: fill 0.3s ease 0.05s;
+}
+
+/* Состояние при наведении */
+.card__icon-button:hover .heart .core,
+.card__icon-button:hover .heart .main-body {
+  fill: var(--contour-color);
+}
+
+/* Обратная анимация (когда курсор уходит) */
+.card__icon-button:not(:hover) .heart .core {
+  transition: fill 0.3s ease 0.03s;
+}
+
+.card__icon-button:not(:hover) .heart .main-body {
+  transition: fill 0.3s ease 0s;
+}
+
 @media (width < 376px) {
   .page__button {
     flex-direction: column;
