@@ -142,7 +142,7 @@
   margin: 52px auto 100px;
   background: #fff;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   text-align: center;
   padding: 15px;
@@ -177,6 +177,9 @@
 
 .modal-window__icon {
   flex-shrink: 0;
+  /* display: block; */
+  inline-size: 39px;
+  block-size: 39px;
 }
 
 .modal-window__text {
@@ -196,5 +199,15 @@
   inline-size: 100%;
 }
 
-@media (width <= 375px) {
+.floppy-icon {
+  /* display: block; */
+  block-size: 28px;
+  inline-size: 28px;
 }
+
+@media (width <= 375px), (width: 375px) {
+  .page__button {
+    flex-direction: column;
+  }
+}
+

@@ -12,7 +12,12 @@
 
     <!-- Фавикон -->
     <link rel="icon" href="./svg/favicon.svg" type="image/svg+xml" />
-    <link rel="icon" href="./images/favicon.ico" sizes="32x32" type="image/ico" />
+    <link
+      rel="icon"
+      href="./images/favicon.ico"
+      sizes="32x32"
+      type="image/ico"
+    />
 
     <!-- Иконка для смартфонов -->
     <link rel="apple-touch-icon" href="./images/favicon.png" />
@@ -575,17 +580,22 @@
       </section>
 
       <button class="page__button" onclick="window['modal-window'].showModal()">
-        <svg width="28" height="28">
-          <use href="./svg/floppy.svg#floppy"></use>
+        <svg
+          width="28"
+          height="28"
+          viewBox="0 0 29 28"
+          class="button__icon floppy-icon"
+        >
+          <use href="./svg/floppyPlugin.svg#floppy"></use>
         </svg>
         <span class="button__text">Сохранить на память</span>
         <span class="visually-hidden">Показать меню</span>
       </button>
 
-      <dialog class="modal-window" id="modal-window" open>
+      <dialog class="modal-window" id="modal-window">
         <div class="modal-window__content">
-          <svg class="modal-window__icon" width="39" height="39">
-            <use href="./svg/floppy.svg#floppy"></use>
+          <svg class="modal-window__icon" viewBox="0 0 39 39">
+            <use href="./svg/floppyPlugin.svg#floppy"></use>
           </svg>
           <p class="modal-window__text">Вставьте дискету, чтобы продолжить</p>
         </div>
