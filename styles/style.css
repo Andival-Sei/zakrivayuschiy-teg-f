@@ -100,6 +100,35 @@
   }
 }
 
+.filter-grayscale {
+  filter: grayscale(70%);
+}
+
+.filter-hue-rotate {
+  filter: hue-rotate(270deg);
+}
+
+.filter-brightness {
+  filter: brightness(0.7);
+}
+
+.filter-saturate {
+  filter: saturate(3);
+}
+
+.filter-blur {
+  filter: blur(2px);
+}
+
+.filter-multiple {
+  filter: grayscale(70%) hue-rotate(270deg) brightness(0.7) saturate(3)
+    blur(2px);
+}
+
+.filter-contrast {
+  filter: contrast(0.4);
+}
+
 .card__content {
   padding: 25px;
   display: flex;
@@ -123,8 +152,43 @@
   justify-content: end;
 }
 
-.card__like-button {
+.button {
+  position: relative;
+  overflow: hidden; /* необходимо для метода с translate */
+  z-index: 1;
   border: 2px solid #000;
+  background: #fff;
+  font-family: var(--accent-font);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 90%;
+  color: #000;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 2px 2px 0 0 #000;
+}
+
+/* Псевдоэлемент для эффекта заливки */
+.button::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* покрываем всю кнопку */
+  background-color: #000; /* черный фон для заливки */
+  transform: translateX(-100%); /* начальное положение за пределами кнопки */
+  transition: transform 0.5s ease-in-out; /* плавность анимации */
+  z-index: -1;
+}
+
+/* Анимация при наведении */
+.button:hover::before {
+  transform: translateX(0); /* заливаем кнопку при наведении */
+}
+
+.card__like-button {
   padding: 12.5px 0;
   min-inline-size: 130px;
 }
@@ -133,14 +197,15 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 90%;
-  color: #000;
   font-family: var(--accent-font);
+  position: relative;
+  z-index: 1;
+  color: #fff; /* белый текст для режима смешивания */
+  mix-blend-mode: difference;
 }
 
 .page__button {
-  border: 2px solid #000;
   margin: 52px auto 100px;
-  background: #fff;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -177,7 +242,6 @@
 
 .modal-window__icon {
   flex-shrink: 0;
-  /* display: block; */
   inline-size: 39px;
   block-size: 39px;
 }
@@ -188,21 +252,18 @@
 }
 
 .modal-window__button {
-  border: 2px solid #000;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 90%;
-  font-family: var(--accent-font);
   text-transform: uppercase;
-  color: #000;
   padding: 11px 0;
   inline-size: 100%;
 }
 
 .floppy-icon {
-  /* display: block; */
   block-size: 28px;
   inline-size: 28px;
+  position: relative;
+  z-index: 1;
+  mix-blend-mode: difference; /* чтобы иконка тоже меняла цвет */
+  fill: #fff; /* устанавливаем белое заполнение для SVG */
 }
 
 @media (width < 376px) {
