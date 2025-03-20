@@ -188,6 +188,29 @@
   transform: translateX(0); /* заливаем кнопку при наведении */
 }
 
+/* Стили для кнопки иконки сердца */
+.card__icon-button {
+  /* block-size: 39px;
+	inline-size: 36px; */
+  background-color: transparent;
+  border: 2px solid transparent; /* Прозрачная граница в обычном состоянии */
+  padding: 9px; /* Подгоняем размер, чтобы соответствовать соседней кнопке */
+  cursor: pointer;
+  transition: border-color 0.3s ease; /* Плавный переход для границы */
+}
+
+/* Убираем стандартную обводку при фокусе */
+.card__icon-button:focus {
+  outline: none;
+}
+
+/* Добавляем стилизованную границу при focus-visible */
+.card__icon-button:focus-visible {
+  border-color: var(
+    --contour-color
+  ); /* Используем акцентный цвет из переменной */
+}
+
 .card__like-button {
   padding: 12.5px 0;
   min-inline-size: 130px;
@@ -266,35 +289,9 @@
   fill: #fff; /* устанавливаем белое заполнение для SVG */
 }
 
-/* Анимация сердечка */
-.sparks {
-  opacity: 0;
-}
-
-/* Базовые состояния элементов сердечка с правильными transition */
-.heart .core {
-  fill: none;
-  transition: fill 0.3s ease 0s;
-}
-
-.heart .main-body {
-  fill: none;
-  transition: fill 0.3s ease 0.05s;
-}
-
-/* Состояние при наведении */
-.card__icon-button:hover .heart .core,
-.card__icon-button:hover .heart .main-body {
-  fill: var(--contour-color);
-}
-
-/* Обратная анимация (когда курсор уходит) */
-.card__icon-button:not(:hover) .heart .core {
-  transition: fill 0.3s ease 0.03s;
-}
-
-.card__icon-button:not(:hover) .heart .main-body {
-  transition: fill 0.3s ease 0s;
+.like-icon {
+  block-size: 36px;
+  inline-size: 39px;
 }
 
 @media (width < 376px) {
