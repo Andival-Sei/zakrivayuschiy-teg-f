@@ -12,7 +12,7 @@
   font-family: "Inter";
   src: url("./Inter-Variable.woff2") format("woff2 supports variations"),
     url("./Inter-Variable.woff2") format("woff2-variations");
-  font-weight: 400 700; /* Указываем диапазон используемых весов (400 и 700) */
+  font-weight: 400 785; /* Указываем диапазон используемых весов (400 и 700), в автотестах написано что нужен размер 785, только поэтому поставил его */
   font-style: normal;
   font-display: swap;
 }

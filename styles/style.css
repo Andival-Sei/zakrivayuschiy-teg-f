@@ -27,7 +27,7 @@
   align-items: center;
   padding: clamp(120px, 0.75vw + 117.2px, 128px) 0;
   margin: 100px auto;
-  inline-size: 100%; /* TODO по заданию так, но не понятно зачем */
+  inline-size: 100%;
   font-family: var(--accent-font);
   background: var(--page-background-color);
   border: var(--border-width) solid var(--contour-color);
@@ -35,14 +35,14 @@
 
 .header__title {
   margin-block-end: 20px;
-  font-weight: 400;
+  font-weight: var(--text-weight);
   font-size: clamp(49px, 3.4vw + 36.25px, 65px);
   text-transform: uppercase;
   color: var(--contour-color);
 }
 
 .header__subtitle {
-  font-weight: 400;
+  font-weight: var(--text-weight);
   font-size: clamp(14px, 0.8vw + 11px, 23px);
   text-transform: uppercase;
   color: var(--contour-color);
@@ -87,7 +87,7 @@
   inset-block-start: 25px;
   inset-inline-end: clamp(11px, calc(11px + (100vw - 375px) * 0.0131), 25px);
   font-family: var(--accent-font);
-  font-weight: 400;
+  font-weight: var(--text-weight);
   font-size: 14px;
   color: var(--contour-color);
   mix-blend-mode: hard-light;
@@ -134,7 +134,7 @@
 }
 
 .card__content {
-  padding: 24px 25px 17px;
+  padding: 24px 25px 25px;
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -144,7 +144,7 @@
   display: flex;
   flex-direction: column;
   gap: 27px;
-  font-weight: 400;
+  font-weight: var(--text-weight);
   font-size: 18px;
   line-height: 117%;
   color: var(--contour-color);
@@ -153,6 +153,7 @@
 .card__buttons-container {
   display: flex;
   justify-content: end;
+  gap: 8px;
 }
 
 .button {
@@ -162,7 +163,7 @@
   border: var(--border-width) solid var(--contour-color);
   background: var(--page-background-color);
   font-family: var(--accent-font);
-  font-weight: 400;
+  font-weight: var(--text-weight);
   font-size: 14px;
   line-height: 90%;
   color: var(--contour-color);
@@ -193,13 +194,14 @@
 
 /* Стили для кнопки иконки сердца */
 .card__icon-button {
-  /* block-size: 39px;
-	inline-size: 36px; */
+  block-size: 36px;
+  inline-size: 39px;
+  padding: 0;
   background-color: transparent;
   border: var(--border-width) solid transparent; /* Прозрачная граница в обычном состоянии */
   /* padding: 9px; */
   /* Подгоняем размер, чтобы соответствовать соседней кнопке */
-  padding-inline-end: 4px;
+  /* padding-inline-end: 4px; */
   cursor: pointer;
   transition: border-color 0.3s ease; /* Плавный переход для границы */
 }
@@ -220,10 +222,12 @@
   /* padding: 12.5px 0; */
   min-inline-size: 130px;
   max-block-size: 38px;
+	padding: 0;
+	/* padding-top: 10px; */
 }
 
 .button__text {
-  font-weight: 400;
+  font-weight: var(--text-weight);
   font-size: 14px;
   line-height: 90%;
   font-family: var(--accent-font);
@@ -249,7 +253,7 @@
   padding: 30px clamp(30px, -0.94vw + 43.52px, 40px);
   flex-direction: column;
   gap: 30px;
-  font-weight: 400;
+  font-weight: var(--text-weight);
   font-size: 14px;
   text-transform: uppercase;
   color: var(--contour-color);
@@ -296,12 +300,6 @@
   fill: var(
     --page-background-color
   ); /* устанавливаем белое заполнение для SVG */
-}
-
-.modal-window__icon {
-  flex-shrink: 0;
-  inline-size: 39px;
-  block-size: 39px;
 }
 
 .like-icon {
