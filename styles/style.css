@@ -18,19 +18,19 @@
   background-image: var(--background-image);
   background-size: cover;
   background-attachment: fixed;
+  background-color: var(--page-background-color);
 }
 
 .header {
   display: flex;
   flex-direction: column;
-  /* gap: 20px; */
   align-items: center;
   padding: clamp(120px, 0.75vw + 117.2px, 128px) 0;
   margin: 100px auto;
   inline-size: 100%; /* TODO по заданию так, но не понятно зачем */
   font-family: var(--accent-font);
-  background: #fff;
-  border: 2px solid #000;
+  background: var(--page-background-color);
+  border: var(--border-width) solid var(--contour-color);
 }
 
 .header__title {
@@ -38,19 +38,19 @@
   font-weight: 400;
   font-size: clamp(49px, 3.4vw + 36.25px, 65px);
   text-transform: uppercase;
-  color: #000;
+  color: var(--contour-color);
 }
 
 .header__subtitle {
   font-weight: 400;
   font-size: clamp(14px, 0.8vw + 11px, 23px);
   text-transform: uppercase;
-  color: #000;
+  color: var(--contour-color);
 }
 
 .card {
-  background: #fff;
-  border: 2px solid #000;
+  background: var(--page-background-color);
+  border: var(--border-width) solid var(--contour-color);
 }
 
 .card:not(:last-child) {
@@ -60,7 +60,7 @@
 .card__title {
   font-variation-settings: "wght" var(--title-weight);
   font-size: 18px;
-  color: #000;
+  color: var(--contour-color);
   margin: 4px 10px 6px;
   /* margin: 3px 10px 3px;  */ /* TODO для второй ширины */
 }
@@ -68,34 +68,38 @@
 .card__image-container {
   position: relative;
   inline-size: 100%;
+  box-sizing: content-box;
 }
 
 .card__image {
-  border-block-start: 2px solid #000;
-  border-block-end: 2px solid #000;
+  border-block-start: var(--border-width) solid var(--contour-color);
+  border-block-end: var(--border-width) solid var(--contour-color);
+
   object-fit: cover;
   object-position: center;
-  /* display: block; */
+  display: block;
   inline-size: 100%;
+  block-size: 100%;
 }
 
 .card__image-label {
   position: absolute;
   inset-block-start: 25px;
-  inset-inline-end: 13px;
+  inset-inline-end: clamp(11px, calc(11px + (100vw - 375px) * 0.0131), 25px);
   font-family: var(--accent-font);
   font-weight: 400;
   font-size: 14px;
-  text-transform: uppercase;
-  color: #000;
+  color: var(--contour-color);
   mix-blend-mode: hard-light;
   opacity: 0.5;
-  text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+  text-shadow: -1px 0 var(--page-background-color),
+    0 1px var(--page-background-color), 1px 0 var(--page-background-color),
+    0 -1px var(--page-background-color);
 }
 
-@supports ((-webkit-text-stroke: 1px #fff)) {
+@supports (-webkit-text-stroke: 1px var(--page-background-color)) {
   .card__image-label {
-    -webkit-text-stroke: 1px #fff;
+    -webkit-text-stroke: 1px var(--page-background-color);
     text-shadow: none;
   }
 }
@@ -130,7 +134,7 @@
 }
 
 .card__content {
-  padding: 25px;
+  padding: 24px 25px 17px;
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -143,12 +147,11 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 117%;
-  color: #000;
+  color: var(--contour-color);
 }
 
 .card__buttons-container {
   display: flex;
-  gap: 12px;
   justify-content: end;
 }
 
@@ -156,20 +159,20 @@
   position: relative;
   overflow: hidden; /* необходимо для метода с translate */
   z-index: 1;
-  border: 2px solid #000;
-  background: #fff;
+  border: var(--border-width) solid var(--contour-color);
+  background: var(--page-background-color);
   font-family: var(--accent-font);
   font-weight: 400;
   font-size: 14px;
   line-height: 90%;
-  color: #000;
+  color: var(--contour-color);
   cursor: pointer;
   transition: box-shadow 0.3s ease;
 }
 
 .button:focus {
   outline: none;
-  box-shadow: 2px 2px 0 0 #000;
+  box-shadow: 2px 2px 0 0 var(--contour-color);
 }
 
 /* Псевдоэлемент для эффекта заливки */
@@ -177,7 +180,7 @@
   content: "";
   position: absolute;
   inset: 0; /* покрываем всю кнопку */
-  background-color: #000; /* черный фон для заливки */
+  background-color: var(--contour-color); /* черный фон для заливки */
   transform: translateX(-100%); /* начальное положение за пределами кнопки */
   transition: transform 0.5s ease-in-out; /* плавность анимации */
   z-index: -1;
@@ -193,8 +196,10 @@
   /* block-size: 39px;
 	inline-size: 36px; */
   background-color: transparent;
-  border: 2px solid transparent; /* Прозрачная граница в обычном состоянии */
-  padding: 9px; /* Подгоняем размер, чтобы соответствовать соседней кнопке */
+  border: var(--border-width) solid transparent; /* Прозрачная граница в обычном состоянии */
+  /* padding: 9px; */
+  /* Подгоняем размер, чтобы соответствовать соседней кнопке */
+  padding-inline-end: 4px;
   cursor: pointer;
   transition: border-color 0.3s ease; /* Плавный переход для границы */
 }
@@ -212,8 +217,9 @@
 }
 
 .card__like-button {
-  padding: 12.5px 0;
+  /* padding: 12.5px 0; */
   min-inline-size: 130px;
+  max-block-size: 38px;
 }
 
 .button__text {
@@ -223,12 +229,13 @@
   font-family: var(--accent-font);
   position: relative;
   z-index: 1;
-  color: #fff; /* белый текст для режима смешивания */
+  color: var(--page-background-color); /* белый текст для режима смешивания */
   mix-blend-mode: difference;
 }
 
 .page__button {
-  margin: 52px auto 100px;
+  margin: calc(52px - (100vw - 375px) * 2 / 1065) auto
+    calc(100px + (100vw - 375px) * 3 / 1065);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -238,14 +245,14 @@
 }
 
 .modal-window {
-  background: #fff;
+  background: var(--page-background-color);
   padding: 30px clamp(30px, -0.94vw + 43.52px, 40px);
   flex-direction: column;
   gap: 30px;
   font-weight: 400;
   font-size: 14px;
   text-transform: uppercase;
-  color: #000;
+  color: var(--contour-color);
   max-inline-size: clamp(341px, 335.4px + 1.5vw, 357px);
 }
 
@@ -254,7 +261,7 @@
 }
 
 .modal-window::backdrop {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: var(--modal-backdrop-color);
 }
 
 .modal-window__content {
@@ -281,12 +288,20 @@
 }
 
 .floppy-icon {
-  block-size: 28px;
-  inline-size: 28px;
+  block-size: clamp(21px, 28px - (100vw - 375px) * 0.00657, 28px);
+  inline-size: clamp(21px, 28px - (100vw - 375px) * 0.00657, 28px);
   position: relative;
   z-index: 1;
   mix-blend-mode: difference; /* чтобы иконка тоже меняла цвет */
-  fill: #fff; /* устанавливаем белое заполнение для SVG */
+  fill: var(
+    --page-background-color
+  ); /* устанавливаем белое заполнение для SVG */
+}
+
+.modal-window__icon {
+  flex-shrink: 0;
+  inline-size: 39px;
+  block-size: 39px;
 }
 
 .like-icon {

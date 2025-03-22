@@ -98,13 +98,3 @@
     opacity: 1;
   }
 }
-
-@keyframes arrow {
-  /* Safari fix */
-  from {
-    transform: translate(0);
-  }
-  to {
-    transform: translate(4px);
-  }
-}
