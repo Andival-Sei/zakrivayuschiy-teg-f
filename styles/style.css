@@ -73,12 +73,13 @@
 .card__image {
   border-block-start: var(--border-width) solid var(--contour-color);
   border-block-end: var(--border-width) solid var(--contour-color);
-
+  /* border: var(--border-width) solid var(--contour-color); */
   object-fit: cover;
   object-position: center;
   display: block;
   inline-size: 100%;
   block-size: 100%;
+  box-sizing: content-box;
 }
 
 .card__image-label {
@@ -133,7 +134,8 @@
 }
 
 .card__content {
-  padding: clamp(24px, calc(24px + (100vw - 375px) * 0.00282), 29px) 25px 26px;
+  padding: clamp(24px, calc(24px + (100vw - 375px) * 0.00282), 29px) 25px
+    clamp(26px, calc(24px + (100vw - 375px) * 0.00282), 28px); 
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -193,6 +195,9 @@
 
 /* Стили для кнопки иконки сердца */
 .card__icon-button {
+  display: flex;
+  align-items: center; /* Центрируем по вертикали */
+  justify-content: center;
   block-size: 36px;
   inline-size: 39px;
   padding: 0;
