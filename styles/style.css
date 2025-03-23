@@ -79,7 +79,11 @@
   object-fit: cover;
   object-position: center;
   inline-size: 100%;
-  block-size: 100%;
+  /* block-size: 100%; */
+	/* inline-size: 371px; */
+	/* block-size: 375px; */
+  max-block-size: 696px; /* Максимальная высота */
+  block-size: auto; /* Изображение сохраняет пропорции */
 }
 
 .card__image-label {
