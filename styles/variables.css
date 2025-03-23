@@ -30,8 +30,8 @@
       transparent 4px
     ),
     linear-gradient(180deg, #e7e7e7 0.01%, #1a1a1a 100%);
-	
-	--page-background-color: #fff; /* Цвет фона страницы */
+
+  --page-background-color: #fff; /* Цвет фона страницы */
 
   /* Переменные для иконки сердца */
   --contour-color: #000; /* Цвет контура сердечка */
