@@ -10,7 +10,7 @@
 
 body {
   margin: 0 auto;
-	max-inline-size: 700px;
+  max-inline-size: 700px;
 }
 
 h1,
@@ -33,11 +33,11 @@ a {
 
 button,
 input {
+  border: none;
   color: currentColor;
   font-family: inherit;
   font-size: inherit;
-	background-color: transparent;
-	border: none;
+  background-color: transparent;
 }
 
 ul,
@@ -47,10 +47,10 @@ ol {
 
 .visually-hidden {
   position: absolute;
-  inline-size: 1px;
-  block-size: 1px;
   overflow: hidden;
   clip: rect(0 0 0 0);
+  inline-size: 1px;
+  block-size: 1px;
   clip-path: inset(50%);
   white-space: nowrap;
 }
