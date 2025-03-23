@@ -82,7 +82,7 @@
   /* block-size: 100%; */
   /* inline-size: 371px; */
   /* block-size: 375px; */
-  max-block-size: 696px; /* Максимальная высота */
+  max-block-size: clamp(371px, calc(371px + (100vw - 375px) * 0.30516), 696px); /* Максимальная высота */
   block-size: auto; /* Изображение сохраняет пропорции */
 }
 
