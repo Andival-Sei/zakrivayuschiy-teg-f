@@ -61,14 +61,13 @@
   font-variation-settings: "wght" var(--title-weight);
   font-size: 18px;
   color: var(--contour-color);
-  margin: 4px 10px 6px;
-  /* margin: 3px 10px 3px;  */ /* TODO для второй ширины */
+  margin: clamp(3px, 4px - (100vw - 375px) * 0.00094, 4px) 10px 3px;
 }
 
 .card__image-container {
   position: relative;
   inline-size: 100%;
-  box-sizing: content-box;
+  /* box-sizing: content-box; */
 }
 
 .card__image {
@@ -84,7 +83,7 @@
 
 .card__image-label {
   position: absolute;
-  inset-block-start: 25px;
+  inset-block-start: 28px;
   inset-inline-end: clamp(11px, calc(11px + (100vw - 375px) * 0.0131), 25px);
   font-family: var(--accent-font);
   font-weight: var(--text-weight);
@@ -134,7 +133,7 @@
 }
 
 .card__content {
-  padding: 24px 25px 25px;
+  padding: clamp(24px, calc(24px + (100vw - 375px) * 0.00282), 29px) 25px 26px;
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -223,7 +222,6 @@
   min-inline-size: 130px;
   max-block-size: 38px;
   padding: 0;
-  /* padding-top: 10px; */
 }
 
 .button__text {
