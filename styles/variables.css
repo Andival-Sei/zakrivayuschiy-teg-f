@@ -39,7 +39,9 @@
 
   --modal-backdrop-color: rgba(0, 0, 0, 0.75); /* Для фона модального окна */
 
-  --timing-animation-s: 0.05s; 
-  --timing-animation-m: 0.1s; 
-  --timing-animation-l: 0.3s; 
+
+	/* Тайминги анимаций */
+  --timing-animation-s: 0.05s;
+  --timing-animation-m: 0.1s;
+  --timing-animation-l: 0.3s;
 }
