@@ -1,4 +1,4 @@
-<https://github.com/Andival-Sei/zakrivayuschiy-teg-f>
+https://github.com/Andival-Sei/zakrivayuschiy-teg-f
 
 # Ссылка на репозиторий
 
