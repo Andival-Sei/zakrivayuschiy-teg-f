@@ -74,11 +74,13 @@
 }
 
 .like-icon.is-liked .heart {
-  animation: heart var(--timing-animation-l) ease-in var(--timing-animation-m) 1 alternate;
+  animation: heart var(--timing-animation-l) ease-in var(--timing-animation-m) 1
+    alternate;
 }
 
 .like-icon.is-liked .sparks {
-  animation: sparks var(--timing-animation-l) ease-in var(--timing-animation-l) 1 alternate;
+  animation: sparks var(--timing-animation-l) ease-in var(--timing-animation-l)
+    1 alternate;
 }
 
 @keyframes heart {
